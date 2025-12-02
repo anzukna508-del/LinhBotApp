@@ -17,9 +17,6 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: Cap quyen cho Gradle
-        run: chmod +x ./gradlew # Cấp quyền thực thi cho file build
-
       - name: Build APK (Release/Debug)
         # Lệnh này sẽ tìm file build.gradle và bắt đầu quá trình biên dịch Java/XML
         run: gradle assembleDebug 
