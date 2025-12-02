@@ -1,10 +1,10 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:8.4.1" // Phiên bản Gradle cho Android
-    }
+// File: build.gradle (Cấp Project)
+plugins {
+    // Khai báo phiên bản Android Gradle Plugin (AGP) ở đây
+    // Version 8.2.0 chạy tốt với Gradle 8.6 mà bạn cài trong YAML
+    id 'com.android.application' version '8.2.0' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
