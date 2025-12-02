@@ -3,6 +3,7 @@ name: Build Android Final
 on:
   push:
     branches: [ main ]
+  workflow_dispatch: # Cho phép bấm nút chạy thủ công để test cho nhanh
 
 jobs:
   build:
@@ -17,15 +18,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # BƯỚC QUAN TRỌNG MỚI: Cài đặt Gradle 8.6 chuẩn
+      # Cài đặt Gradle 8.6 (Phù hợp với AGP 8.4.1 trong file build.gradle gốc của bạn)
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: '8.6'
 
-      # Thêm --stacktrace để nếu có lỗi nó sẽ hiện rõ nguyên nhân thay vì báo chung chung
+      # Chạy lệnh build (Thêm --no-daemon để tiết kiệm RAM trên server)
       - name: Build APK
-        run: gradle :app:assembleDebug --stacktrace
+        run: gradle :app:assembleDebug --stacktrace --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
