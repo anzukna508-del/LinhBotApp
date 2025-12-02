@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingStart="8dp"
-    android:paddingEnd="8dp"
-    android:paddingTop="4dp"
-    android:paddingBottom="4dp">
+    android:padding="8dp">
 
+    <!-- AVATAR BOT (Bên trái) -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgBotAvatar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/linh_avatar"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"/> 
+        <!-- Lưu ý: Nếu chưa cài thư viện CircleImageView thì dùng ImageView thường -->
+
+    <!-- TIN NHẮN BOT (Bên phải Avatar) -->
     <TextView
         android:id="@+id/textBot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="280dp"
+        android:layout_toEndOf="@id/imgBotAvatar"
+        android:background="@drawable/bot_bubble_bg"
         android:padding="12dp"
-        android:background="@drawable/bot_bubble_bg" 
-        android:textColor="@color/white"
-        android:text="Chào bạn! Tôi là Linh."
-        android:layout_gravity="start"
-        android:visibility="gone" /> <TextView
+        android:text="Bot Message"
+        android:textColor="#E4E6EB" 
+        android:visibility="gone"
+        android:maxWidth="260dp"
+        android:textSize="16sp"/>
+
+    <!-- TIN NHẮN USER (Bên phải màn hình) -->
+    <TextView
         android:id="@+id/textUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="280dp"
-        android:padding="12dp"
+        android:layout_alignParentEnd="true"
         android:background="@drawable/user_bubble_bg"
-        android:textColor="@color/white"
-        android:text="Xin chào!"
-        android:layout_gravity="end" 
-        android:visibility="gone" /> </LinearLayout>
+        android:padding="12dp"
+        android:text="User Message"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        android:maxWidth="260dp"
+        android:textSize="16sp"/>
+
+</RelativeLayout>

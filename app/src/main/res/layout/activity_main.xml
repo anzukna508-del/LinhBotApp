@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#18191a"
+    android:background="#18191a" 
     tools:context=".MainActivity">
 
-    <!-- Header -->
+    <!-- HEADER (Giống file JS) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -18,14 +18,14 @@
         android:paddingEnd="16dp"
         android:elevation="4dp">
 
-        <!-- Đã sửa: Dùng ImageView thường thay vì CircleImageView để tránh lỗi thiếu thư viện -->
-        <!-- Đã xóa: civ_border_width và civ_border_color -->
-        <ImageView
+        <!-- Avatar này sẽ đổi mặt khi Bot chat -->
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgHeaderAvatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/linh_avatar"
-            android:scaleType="centerCrop"/>
+            app:civ_border_width="2dp"
+            app:civ_border_color="#0084ff"/>
 
         <TextView
             android:text="Linh Bot"
@@ -35,30 +35,25 @@
             android:layout_marginStart="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
+            
+        <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+        
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="24dp" android:layout_height="24dp"
             android:src="@android:drawable/ic_menu_preferences"
             app:tint="#b0b3b8"/>
     </LinearLayout>
 
-    <!-- Khu vực chat -->
+    <!-- LIST CHAT -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerChat"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:paddingTop="10dp"
-        android:clipToPadding="false"
-        android:scrollbars="vertical"/>
+        android:clipToPadding="false"/>
 
-    <!-- Khu vực nhập liệu -->
+    <!-- INPUT AREA -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,14 +62,6 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@android:drawable/ic_menu_gallery"
-            app:tint="#0084ff"
-            android:layout_marginEnd="10dp"/>
-
-        <!-- Đã sửa: Tên file nền background thành rounded_input_background (cho khớp với tên file thật) -->
         <EditText
             android:id="@+id/editInput"
             android:layout_width="0dp"
@@ -88,13 +75,15 @@
             android:maxLines="4"
             android:textSize="15sp"/>
 
+        <!-- Nút gửi là ImageView cho đẹp -->
         <ImageView
             android:id="@+id/btnSend"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_send"
             app:tint="#0084ff"
-            android:layout_marginStart="10dp"/>
+            android:padding="5dp"
+            android:layout_marginStart="8dp"/>
     </LinearLayout>
 
 </LinearLayout>

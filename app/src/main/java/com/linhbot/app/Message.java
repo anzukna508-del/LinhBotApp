@@ -1,13 +1,13 @@
 package com.linhbot.app;
 
-// Khai báo một lớp (Class) giống như một Object trong JS
 public class Message {
     public String content;
-    public boolean isBot; // True = Tin nhắn của Bot, False = Tin nhắn của User
+    public boolean isBot;
+    public int emoteResId; // Lưu ID ảnh cảm xúc (ví dụ: R.drawable.happy)
 
-    // Hàm tạo (Constructor)
-    public Message(String content, boolean isBot) {
+    public Message(String content, boolean isBot, int emoteResId) {
         this.content = content;
         this.isBot = isBot;
+        this.emoteResId = emoteResId;
     }
 }
