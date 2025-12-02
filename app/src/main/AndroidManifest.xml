@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/linh_avatar" 
+        android:roundIcon="@drawable/linh_avatar"
         android:label="LinhBot"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LinhBotNative"
         tools:targetApi="31">
