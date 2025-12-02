@@ -1,4 +1,4 @@
-name: Build Android APK Final
+name: Build Android Final
 
 on:
   push:
@@ -16,10 +16,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
 
-      - name: Build with Gradle
-        run: gradle assembleDebug --stacktrace --warning-mode all
+      # BƯỚC QUAN TRỌNG MỚI: Cài đặt Gradle 8.6 chuẩn
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.6'
+
+      # Thêm --stacktrace để nếu có lỗi nó sẽ hiện rõ nguyên nhân thay vì báo chung chung
+      - name: Build APK
+        run: gradle :app:assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
