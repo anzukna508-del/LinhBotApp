@@ -19,7 +19,7 @@ jobs:
 
       - name: Build APK (Release/Debug)
         # Lệnh này sẽ tìm file build.gradle và bắt đầu quá trình biên dịch Java/XML
-        run: gradle assembleDebug 
+        run: gradle :app:assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
