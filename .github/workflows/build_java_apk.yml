@@ -1,0 +1,31 @@
+name: Build Native Android APK (Java)
+
+on:
+  push:
+    branches:
+      - main # Chạy lệnh build mỗi khi bạn đẩy code lên nhánh 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Cap quyen cho Gradle
+        run: chmod +x ./gradlew # Cấp quyền thực thi cho file build
+
+      - name: Build APK (Release/Debug)
+        # Lệnh này sẽ tìm file build.gradle và bắt đầu quá trình biên dịch Java/XML
+        run: ./gradlew assembleDebug 
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: linhbot-native-apk
+          path: app/build/outputs/apk/debug/app-debug.apk # Đường dẫn lấy file APK

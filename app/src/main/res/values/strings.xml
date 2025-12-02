@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LinhBot AI</string>
+    <string name="hint_input">Nhập tin nhắn...</string>
+    <string name="btn_send">Gửi</string>
+</resources>
